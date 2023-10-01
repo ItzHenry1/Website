@@ -1,3 +1,13 @@
 body {
-    background-color: gray;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+#welcome {
+    text-align: center;
+    color: white;
+
 }

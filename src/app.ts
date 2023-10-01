@@ -3,6 +3,9 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import bodyParser from 'body-parser';
+import forumRouter from './routes/forum';
+
 const app = express();
 const port: Number = 80;
 
@@ -20,12 +23,15 @@ mongoose.connect(key)
   app.use(express.static('public'));
   app.set('view engine', 'ejs');
 
-app.get('/', (req: any, res: any) => {
-  const data = {
-    hola: 'test'
-  }
-  res.render('index', data)
+app.get('/', async (req: any, res: any) => {
+  await res.render('index')
 });
+
+// Middleware
+app.use(bodyParser.json());
+
+// Use the forum router
+app.use('/api', forumRouter);
 
 app.listen(port, () => {
   console.log(`Servidor web escuchando en el puerto ${port}`);

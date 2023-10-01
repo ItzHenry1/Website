@@ -2,9 +2,9 @@
   "name": "webpage",
   "version": "1.0.0",
   "description": "Este repositorio sera usado por mi para probar cosas.",
-  "main": "./dist/app.js",
+  "main": "./src/app.ts",
   "scripts": {
-    "start": "node dist/app.js"
+    "start": "ts-node src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,8 @@
   "homepage": "https://github.com/ItzHenry1/Webpage#readme",
   "dependencies": {
     "@types/ejs": "^3.1.3",
+    "axios": "^1.5.1",
+    "chalk": "^4.1.2",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
