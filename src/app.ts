@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-const port: Number = 3000;
+const port: Number = 80;
 
 // Conectar a la base de datos MongoDB
 const key: any = process.env.key
@@ -17,15 +17,14 @@ mongoose.connect(key)
   });
 
   //Pagina principal
-
-  app.set('view engine', 'ejs');
   app.use(express.static('public'));
+  app.set('view engine', 'ejs');
 
 app.get('/', (req: any, res: any) => {
   const data = {
     hola: 'test'
   }
-  res.render('index')
+  res.render('index', data)
 });
 
 app.listen(port, () => {
