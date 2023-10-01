@@ -3,9 +3,9 @@
 import axios from 'axios';
 import chalk from 'chalk';
 
-const endpoints = ['/create-forum']
+const endpoints = ['create-forum', '']
 const requestData = {
-  title: 'MI nuevo foro',
+  title: 'Mi nuevo foro',
   description: 'Nose',
 };
 endpoints.forEach(async element => {
@@ -14,9 +14,11 @@ endpoints.forEach(async element => {
     .post(apiUrl, requestData)
     .then((response) => {
       console.log(chalk.yellow(`[Endpoint: ${element}]`), chalk.green(`Test pasado correctamente`));
+      console.log(`Respuesta: `, response)
     })
     .catch((error) => {
-      console.error(`[Endpoint ${element}] A fallado el test!`);
+      console.error(chalk.yellow(`[Endpoint ${element}]`), chalk.red(`A fallado el test!`));
+      console.log(chalk.red(error))
     });
 });; 
 
