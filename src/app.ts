@@ -5,6 +5,7 @@ dotenv.config();
 
 import bodyParser from 'body-parser';
 import forumRouter from './routes/forum';
+import forumsRouter from './routes/forums'
 
 const app = express();
 const port: Number = 80;
@@ -30,8 +31,9 @@ app.get('/', async (req: any, res: any) => {
 // Middleware
 app.use(bodyParser.json());
 
-// Use the forum router
+// El router de los forums
 app.use('/api', forumRouter);
+app.use('/api', forumsRouter);
 
 app.listen(port, () => {
   console.log(`Servidor web escuchando en el puerto ${port}`);
